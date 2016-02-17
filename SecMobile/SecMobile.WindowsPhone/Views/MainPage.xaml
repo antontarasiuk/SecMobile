@@ -27,19 +27,14 @@
             <Image Margin="5"  x:Name="DrawerIcon"   Source="/Assets/drawer_icon.png" HorizontalAlignment="Left" Tapped="DrawerIcon_Tapped" />
         </Grid>
 
-        <!-- Title Panel -->
-        <!--
-        <StackPanel Grid.Row="0" Margin="19,0,0,0">
-           
-            <TextBlock Text="MY APPLICATION" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,12,0,0"/>
-            <TextBlock Text="page2" Margin="0,-6.5,0,26.5" Style="{ThemeResource HeaderTextBlockStyle}" CharacterSpacing="{ThemeResource PivotHeaderItemCharacterSpacing}"/>
-        </StackPanel>-->
 
         <!-- Drawer Layout -->
         <drawerLayout:DrawerLayout Grid.Row="1"  x:Name="DrawerLayout">
             <!-- DrawerLayout code goes here -->
             <Grid x:Name="MainFragment" Background="White">
                 <!-- Main Content goes here -->
+                <ListView ItemsSource="{Binding Speakers}" ItemTemplate="SpeakersListTemplate"/>
+
             </Grid>
 
             <Grid x:Name="ListFragment" Background="#F4F4F4">
