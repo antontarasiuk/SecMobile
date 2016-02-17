@@ -16,7 +16,6 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using MvvmCross.WindowsCommon.Views;
-using SecMobile.Core.ViewModels;
 
 // The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkID=390556
 
@@ -25,20 +24,20 @@ namespace SecMobile.Views
 	/// <summary>
 	/// An empty page that can be used on its own or navigated to within a Frame.
 	/// </summary>
-	public sealed partial class LoginView : MvxWindowsPage
+	public sealed partial class MainPage : MvxWindowsPage
 	{
 		private NavigationHelper navigationHelper;
 		private ObservableDictionary defaultViewModel = new ObservableDictionary();
 
-		public new LoginViewModel ViewModel
-		{
-			get { return (LoginViewModel) base.ViewModel; }
-			set { base.ViewModel = value; }
-		}
-
-		public LoginView()
+		public MainPage()
 		{
 			this.InitializeComponent();
+
+			DrawerLayout.InitializeDrawerLayout();
+
+			string[] menuItems = new string[6] { "AGENDA", "MY AGENDA", "SPEAKERS", "YAMMER", "SURVEY", "SETTINGS" };
+			ListMenuItems.ItemsSource = menuItems.ToList();
+
 
 			this.navigationHelper = new NavigationHelper(this);
 			//this.navigationHelper.LoadState += this.NavigationHelper_LoadState;
@@ -107,16 +106,37 @@ namespace SecMobile.Views
 		protected override void OnNavigatedTo(NavigationEventArgs e)
 		{
 			base.OnNavigatedTo(e);
-			this.navigationHelper.OnNavigatedTo(e);
+			Windows.Phone.UI.Input.HardwareButtons.BackPressed += HardwareButtons_BackPressed;
+			//this.navigationHelper.OnNavigatedTo(e);
+		}
+
+		void HardwareButtons_BackPressed(object sender, Windows.Phone.UI.Input.BackPressedEventArgs e)
+		{
+			if (DrawerLayout.IsDrawerOpen)
+			{
+				DrawerLayout.CloseDrawer();
+				e.Handled = true;
+			}
+			else
+			{
+				Application.Current.Exit();
+			}
 		}
 
 		protected override void OnNavigatedFrom(NavigationEventArgs e)
 		{
 			base.OnNavigatedFrom(e);
-			this.navigationHelper.OnNavigatedFrom(e);
+			//this.navigationHelper.OnNavigatedFrom(e);
 		}
 
 		#endregion
 
+		private void DrawerIcon_Tapped(object sender, TappedRoutedEventArgs e)
+		{
+			if (DrawerLayout.IsDrawerOpen)
+				DrawerLayout.CloseDrawer();
+			else
+				DrawerLayout.OpenDrawer();
+		}
 	}
 }

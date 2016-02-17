@@ -1,0 +1,63 @@
+﻿<views:MvxWindowsPage
+    x:Class="SecMobile.Views.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SecMobile.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:views="using:MvvmCross.WindowsCommon.Views"
+    xmlns:drawerLayout="using:DrawerLayout"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid x:Name="LayoutRoot">
+
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition/>
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Height="60">
+            <Image Margin="5"  x:Name="DrawerIcon"   Source="/Assets/drawer_icon.png" HorizontalAlignment="Left" Tapped="DrawerIcon_Tapped" />
+        </Grid>
+
+        <!-- Title Panel -->
+        <!--
+        <StackPanel Grid.Row="0" Margin="19,0,0,0">
+           
+            <TextBlock Text="MY APPLICATION" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,12,0,0"/>
+            <TextBlock Text="page2" Margin="0,-6.5,0,26.5" Style="{ThemeResource HeaderTextBlockStyle}" CharacterSpacing="{ThemeResource PivotHeaderItemCharacterSpacing}"/>
+        </StackPanel>-->
+
+        <!-- Drawer Layout -->
+        <drawerLayout:DrawerLayout Grid.Row="1"  x:Name="DrawerLayout">
+            <!-- DrawerLayout code goes here -->
+            <Grid x:Name="MainFragment" Background="White">
+                <!-- Main Content goes here -->
+            </Grid>
+
+            <Grid x:Name="ListFragment" Background="#F4F4F4">
+                <ListView x:Name="ListMenuItems">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding}" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" Foreground="Black" />
+                                       <!--Tapped="MenuItem_Tapped" />--> 
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+            </Grid>
+        </drawerLayout:DrawerLayout>
+
+        <!--TODO: Content should be placed within the following grid-->
+        <Grid Grid.Row="1" x:Name="ContentRoot" Margin="19,9.5,19,0">
+
+        </Grid>
+    </Grid>
+</views:MvxWindowsPage>

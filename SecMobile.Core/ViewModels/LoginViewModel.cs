@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using MvvmCross.Core.ViewModels;
 
 namespace SecMobile.Core.ViewModels
@@ -17,11 +18,23 @@ namespace SecMobile.Core.ViewModels
 			set { SetProperty(ref _hello, value); }
 		}
 
-		private string _property;
-		public string Property
+		private string _selected;
+		public string Selected
 		{
-			get { return _property; }
-			set { _property = value; RaisePropertyChanged(() => Property); }
+			get { return _selected; }
+			set {
+				_selected = value;
+				ShowViewModel<MainViewModel>();
+			}
+		}
+
+		public IMvxCommand Login
+		{
+			get
+			{
+				return
+					new MvxCommand(() => ShowViewModel<MainViewModel>());
+			}
 		}
 	}
 }
