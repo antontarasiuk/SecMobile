@@ -15,8 +15,6 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using MvvmCross.WindowsCommon.Views;
-using SecMobile.Core.ViewModels;
 
 // The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkID=390556
 
@@ -25,24 +23,18 @@ namespace SecMobile.Views
 	/// <summary>
 	/// An empty page that can be used on its own or navigated to within a Frame.
 	/// </summary>
-	public sealed partial class LoginPageView : MvxWindowsPage
+	public sealed partial class AgendaView : Page
 	{
 		private NavigationHelper navigationHelper;
 		private ObservableDictionary defaultViewModel = new ObservableDictionary();
 
-		public new LoginViewModel ViewModel
-		{
-			get { return (LoginViewModel) base.ViewModel; }
-			set { base.ViewModel = value; }
-		}
-
-		public LoginPageView()
+		public AgendaView()
 		{
 			this.InitializeComponent();
 
 			this.navigationHelper = new NavigationHelper(this);
-			//this.navigationHelper.LoadState += this.NavigationHelper_LoadState;
-			//this.navigationHelper.SaveState += this.NavigationHelper_SaveState;
+			this.navigationHelper.LoadState += this.NavigationHelper_LoadState;
+			this.navigationHelper.SaveState += this.NavigationHelper_SaveState;
 		}
 
 		/// <summary>
@@ -106,17 +98,14 @@ namespace SecMobile.Views
 		/// handlers that cannot cancel the navigation request.</param>
 		protected override void OnNavigatedTo(NavigationEventArgs e)
 		{
-			base.OnNavigatedTo(e);
 			this.navigationHelper.OnNavigatedTo(e);
 		}
 
 		protected override void OnNavigatedFrom(NavigationEventArgs e)
 		{
-			base.OnNavigatedFrom(e);
 			this.navigationHelper.OnNavigatedFrom(e);
 		}
 
 		#endregion
-
 	}
 }

@@ -3,47 +3,31 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Input;
 using MvvmCross.Core.ViewModels;
 using SecMobile.Core.Entities;
 
 namespace SecMobile.Core.ViewModels
 {
-	public class MainViewModel : MvxViewModel
+	public class SpeakersViewModel : BaseViewModel
 	{
 		private IEnumerable<Speaker> _speakers;
-
-		private object[] _hamburgerMenu =
+		
+		private string _title = "SEC Winter 2016";
+		public string Title
 		{
-			new {Img = "/Assets/icon_menu/Agenda_Mdpi_gray.png", Name = "Agenda"},
-			new {Img = "/Assets/icon_menu/My_Agenda_Mdpi_gray.png", Name = "My Agenda"},
-			new {Img = "/Assets/icon_menu/Speakers_Mdpi_gray.png", Name = "Speakers"},
-			new {Img = "/Assets/icon_menu/Yammer_Mdpi_gray.png", Name = "Yammer"},
-			new {Img = "/Assets/icon_menu/Feedback_Mdpi_gray.png", Name = "Feedback"},
-			new {Img = "/Assets/icon_menu/Settings_Mdpi_gray.png", Name = "Settings"}
-		};
-		public object[] HamburgerMenu
-		{
-			get { return _hamburgerMenu; }
-			set { _hamburgerMenu = value; RaisePropertyChanged(() => HamburgerMenu); }
+			get { return _title; }
 		}
-
-
-
-		//private string[] _hamburgerMenuItems = { "AGENDA", "MY AGENDA", "SPEAKERS", "YAMMER", "SURVEY", "SETTINGS" };
-
-		//public string[] HamburgerMenuItems
-		//{
-		//	get { return _hamburgerMenuItems; }
-		//	set { _hamburgerMenuItems = value; RaisePropertyChanged(() => HamburgerMenuItems); }
-		//}
-
+		
 		public IEnumerable<Speaker> Speakers
 		{
 			get { return _speakers; }
 			set { _speakers = value; RaisePropertyChanged(() => Speakers); }
 		}
 
-		public MainViewModel()
+		public SpeakersViewModel()
 		{
 			Speakers = new List<Speaker>()
 			{

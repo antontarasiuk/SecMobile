@@ -58,7 +58,7 @@
 
         <Style TargetType="TextBlock" x:Name="SpeakerListItemPosition">
             <Setter Property="Foreground" Value="#6D6D6D"/>
-            <Setter Property="FontSize" Value="26"/>
+            <Setter Property="FontSize" Value="20"/>
         </Style>
 
         <DataTemplate x:Name="SpeakersListItemTemplate">

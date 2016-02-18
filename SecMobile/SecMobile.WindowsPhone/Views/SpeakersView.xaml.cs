@@ -16,6 +16,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using MvvmCross.WindowsCommon.Views;
+using SecMobile.Core.ViewModels;
 
 // The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkID=390556
 
@@ -24,22 +25,24 @@ namespace SecMobile.Views
 	/// <summary>
 	/// An empty page that can be used on its own or navigated to within a Frame.
 	/// </summary>
-	public sealed partial class MainPage : MvxWindowsPage
+	public sealed partial class SpeakersPageView : MvxWindowsPage
 	{
 		private NavigationHelper navigationHelper;
 		private ObservableDictionary defaultViewModel = new ObservableDictionary();
 
-		public MainPage()
+		public new SpeakersViewModel ViewModel
+		{
+			get { return (SpeakersViewModel) base.ViewModel; }
+			set { base.ViewModel = value; }
+		}
+
+	public SpeakersPageView()
 		{
 			this.InitializeComponent();
 
 			DrawerLayout.InitializeDrawerLayout();
 
-			//ListMenuItems.ItemsSource = HamburgerMenu;
-
 			this.navigationHelper = new NavigationHelper(this);
-			//this.navigationHelper.LoadState += this.NavigationHelper_LoadState;
-			//this.navigationHelper.SaveState += this.NavigationHelper_SaveState;
 		}
 
 		/// <summary>
@@ -135,6 +138,11 @@ namespace SecMobile.Views
 				DrawerLayout.CloseDrawer();
 			else
 				DrawerLayout.OpenDrawer();
+		}
+
+		private void OnMenuItemClick(object sender, TappedRoutedEventArgs tappedRoutedEventArgs)
+		{
+			ViewModel.MenuItemClick(sender, tappedRoutedEventArgs);
 		}
 	}
 }
