@@ -10,10 +10,11 @@
         </Style>
 
         <Style TargetType="Button">
-            <Setter Property="Background" Value="#000000"/>
+            <Setter Property="Background" Value="#3BC2D9"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Width" Value="230"/>
+            <Setter Property="Height" Value="80"/>
         </Style>
-
-        
         
         <Style TargetType="Grid" x:Name="Header">
             <Setter Property="Grid.Row" Value="0"/>
