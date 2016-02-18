@@ -10,17 +10,34 @@ namespace SecMobile.Core.ViewModels
 {
 	public class MainViewModel : MvxViewModel
 	{
-		private List<Speaker> _speakers;
+		private IEnumerable<Speaker> _speakers;
 
-
-		private string[] _listMenuItems = { "agenda", "my agenda", "speakers", "yammer", "survey", "settings" };
-		public string[] ListMenuItems
+		private object[] _hamburgerMenu =
 		{
-			get { return _listMenuItems; }
-			set { _listMenuItems = value; RaisePropertyChanged(() => ListMenuItems); }
+			new {Img = "/Assets/icon_menu/Agenda_Mdpi_gray.png", Name = "Agenda"},
+			new {Img = "/Assets/icon_menu/My_Agenda_Mdpi_gray.png", Name = "My Agenda"},
+			new {Img = "/Assets/icon_menu/Speakers_Mdpi_gray.png", Name = "Speakers"},
+			new {Img = "/Assets/icon_menu/Yammer_Mdpi_gray.png", Name = "Yammer"},
+			new {Img = "/Assets/icon_menu/Feedback_Mdpi_gray.png", Name = "Feedback"},
+			new {Img = "/Assets/icon_menu/Settings_Mdpi_gray.png", Name = "Settings"}
+		};
+		public object[] HamburgerMenu
+		{
+			get { return _hamburgerMenu; }
+			set { _hamburgerMenu = value; RaisePropertyChanged(() => HamburgerMenu); }
 		}
 
-		public List<Speaker> Speakers
+
+
+		//private string[] _hamburgerMenuItems = { "AGENDA", "MY AGENDA", "SPEAKERS", "YAMMER", "SURVEY", "SETTINGS" };
+
+		//public string[] HamburgerMenuItems
+		//{
+		//	get { return _hamburgerMenuItems; }
+		//	set { _hamburgerMenuItems = value; RaisePropertyChanged(() => HamburgerMenuItems); }
+		//}
+
+		public IEnumerable<Speaker> Speakers
 		{
 			get { return _speakers; }
 			set { _speakers = value; RaisePropertyChanged(() => Speakers); }
@@ -42,7 +59,7 @@ namespace SecMobile.Core.ViewModels
 					FirstName = "Franklin",
 					LastName = "Clinton",
 					AvatarPath = "http://media.rockstargames.com/rockstargames/img/global/downloads/buddyiconsconavatars/v_franklin_trunk_80x80.jpg",
-					Position = "Theft Auto"
+					Position = "Repo man, Car Thief"
 				},
 				new Speaker()
 				{
@@ -67,6 +84,13 @@ namespace SecMobile.Core.ViewModels
 				},
 				new Speaker()
 				{
+					FirstName = "Steve",
+					LastName = "Haines",
+					AvatarPath = "http://www.igta5.com/images/200x0/stevehaines.jpg",
+					Position = "FIB Agent"
+				},
+				new Speaker()
+				{
 					FirstName = "Lester",
 					LastName = "Crest",
 					AvatarPath = "http://media.rockstargames.com/rockstargames/img/global/downloads/buddyiconsconavatars/v_heists_lester_80x80.jpg",
@@ -77,7 +101,14 @@ namespace SecMobile.Core.ViewModels
 					FirstName = "Lamar",
 					LastName = "Davis",
 					AvatarPath = "http://media.rockstargames.com/rockstargames/img/global/downloads/buddyiconsconavatars/v_lamar_80x80.jpg",
-					Position = "repo man"
+					Position = "Repo man"
+				},
+				new Speaker()
+				{
+					FirstName = "Terrence",
+					LastName = "Thorpe",
+					AvatarPath = "http://www.igta5.com/images/200x0/terrencethorpe.jpg",
+					Position = "Lost MC member"
 				},
 				new Speaker()
 				{
@@ -102,10 +133,31 @@ namespace SecMobile.Core.ViewModels
 				},
 				new Speaker()
 				{
+					FirstName = "Davin",
+					LastName = "Weston",
+					AvatarPath = "http://www.igta5.com/images/200x0/devinweston.jpg",
+					Position = "Billionaire investor, CEO of Merryweather"
+				},
+				new Speaker()
+				{
+					FirstName = "Molly",
+					LastName = "Schultz",
+					AvatarPath = "http://www.igta5.com/images/200x0/mollyschultz.jpg",
+					Position = "Devin Weston's lawyer"
+				},
+				new Speaker()
+				{
 					FirstName = "Ron",
 					LastName = "Jakowski",
 					AvatarPath = "http://media.rockstargames.com/rockstargames/img/global/downloads/buddyiconsconavatars/v_ron_80x80.jpg",
 					Position = "Trevor's righthand man"
+				},
+				new Speaker()
+				{
+					FirstName = "Chef",
+					LastName = "",
+					AvatarPath = "http://www.igta5.com/images/200x0/chef.jpg",
+					Position = "Meth cooker"
 				},
 				new Speaker()
 				{

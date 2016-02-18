@@ -35,9 +35,7 @@ namespace SecMobile.Views
 
 			DrawerLayout.InitializeDrawerLayout();
 
-			string[] menuItems = new string[6] { "AGENDA", "MY AGENDA", "SPEAKERS", "YAMMER", "SURVEY", "SETTINGS" };
-			ListMenuItems.ItemsSource = menuItems.ToList();
-
+			//ListMenuItems.ItemsSource = HamburgerMenu;
 
 			this.navigationHelper = new NavigationHelper(this);
 			//this.navigationHelper.LoadState += this.NavigationHelper_LoadState;

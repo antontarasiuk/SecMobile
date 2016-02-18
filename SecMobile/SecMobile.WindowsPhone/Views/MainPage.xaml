@@ -11,48 +11,24 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid x:Name="LayoutRoot">
-
-        <Grid.ChildrenTransitions>
-            <TransitionCollection>
-                <EntranceThemeTransition/>
-            </TransitionCollection>
-        </Grid.ChildrenTransitions>
-
+      
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Grid Grid.Row="0" Height="60">
-            <Image Margin="5"  x:Name="DrawerIcon"   Source="/Assets/drawer_icon.png" HorizontalAlignment="Left" Tapped="DrawerIcon_Tapped" />
+        <Grid Style="{StaticResource Header}">
+            <Image Source="/Assets/drawer_icon.png" Tapped="DrawerIcon_Tapped" Style="{StaticResource HamburgerButton}"/>
         </Grid>
 
-
-        <!-- Drawer Layout -->
         <drawerLayout:DrawerLayout Grid.Row="1"  x:Name="DrawerLayout">
-            <!-- DrawerLayout code goes here -->
-            <Grid x:Name="MainFragment" Background="White">
-                <!-- Main Content goes here -->
-                <ListView ItemsSource="{Binding Speakers}" ItemTemplate="SpeakersListTemplate"/>
-
+            <Grid>
+                <ListView ItemsSource="{Binding Speakers}" ItemTemplate="{StaticResource SpeakersListItemTemplate}"/>
             </Grid>
-
-            <Grid x:Name="ListFragment" Background="#F4F4F4">
-                <ListView x:Name="ListMenuItems">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding}" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" Foreground="Black" />
-                                       <!--Tapped="MenuItem_Tapped" />--> 
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-
+            <Grid>
+                <ListView ItemsSource="{Binding HamburgerMenu}" ItemTemplate="{StaticResource HamburgerMenuItemTemplate}"/>
             </Grid>
         </drawerLayout:DrawerLayout>
 
-        <!--TODO: Content should be placed within the following grid-->
-        <Grid Grid.Row="1" x:Name="ContentRoot" Margin="19,9.5,19,0">
-
-        </Grid>
     </Grid>
 </views:MvxWindowsPage>

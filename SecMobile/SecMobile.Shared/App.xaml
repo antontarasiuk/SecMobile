@@ -5,11 +5,80 @@
     xmlns:local="using:SecMobile">
     <Application.Resources>
 
-        <DataTemplate x:Name="SpeakersListItemTemplate">
-            
+        <Style TargetType="Grid">
+            <Setter Property="Background" Value="#FFFFFF"/>
+        </Style>
+
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="#000000"/>
+        </Style>
+
+        
+        
+        <Style TargetType="Grid" x:Name="Header">
+            <Setter Property="Grid.Row" Value="0"/>
+            <Setter Property="Height" Value="60"/>
+            <Setter Property="Background" Value="#3BC2D9"/>
+        </Style>
+        <Style TargetType="Image" x:Name="HamburgerButton">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+        </Style>
+        
+        <Style TargetType="Grid" x:Name="HamburgerMenu">
+            <Setter Property="Background" Value="#F4F4F4"/>
+        </Style>
+        <Style TargetType="Image" x:Name="HamburgerMenuItemImage">
+            <Setter Property="MaxHeight" Value="50"/>
+            <Setter Property="MaxWidth" Value="50"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="TextBlock" x:Name="HamburgerMenuItemName">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="Foreground" Value="#3BC2D9"/>
+            <Setter Property="FontSize" Value="26"/>
+        </Style>
+
+        <DataTemplate x:Name="HamburgerMenuItemTemplate">
+            <StackPanel Orientation="Horizontal">
+                <Grid Height="70" Width="70">
+                    <Image Source="{Binding Img}" Style="{StaticResource HamburgerMenuItemImage}"/>
+                </Grid>
+                <TextBlock Text="{Binding Name}" Style="{StaticResource HamburgerMenuItemName}"/>
+            </StackPanel>
         </DataTemplate>
-        
-        
+
+        <Style TargetType="TextBlock" x:Name="SpeakerListItemName">
+            <Setter Property="Foreground" Value="#3BC2D9"/>
+            <Setter Property="FontSize" Value="26"/>
+        </Style>
+
+        <Style TargetType="TextBlock" x:Name="SpeakerListItemPosition">
+            <Setter Property="Foreground" Value="#6D6D6D"/>
+            <Setter Property="FontSize" Value="26"/>
+        </Style>
+
+        <DataTemplate x:Name="SpeakersListItemTemplate">
+            <StackPanel Orientation="Horizontal">
+                <Grid Width="120" Height="120">
+                    <Ellipse HorizontalAlignment="Center" VerticalAlignment="Center" Fill="#EBE6EA"
+                             Height="110" Width="110"/>
+                    <Ellipse Height="100" Width="100">
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="{Binding AvatarPath}" AlignmentX="Center" AlignmentY="Center"/>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                </Grid>
+                <StackPanel>
+                    <TextBlock Text="{Binding FullName}" Style="{StaticResource SpeakerListItemName}"/>
+                    <TextBlock Text="{Binding Position}" Style="{StaticResource SpeakerListItemPosition}"/>
+                </StackPanel>
+            </StackPanel>
+        </DataTemplate>
+
+
     </Application.Resources>
 
 

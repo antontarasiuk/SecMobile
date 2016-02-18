@@ -12,26 +12,7 @@ namespace SecMobile.Core.ViewModels
 	public class LoginViewModel
 	   : MvxViewModel
 	{
-		#region fields
-
 		
-
-		#endregion
-
-		#region ctor
-
-		
-
-		#endregion
-
-		#region properties
-
-		
-
-		#endregion
-
-		#region events
-
 		public IMvxCommand Login
 		{
 			get
@@ -40,7 +21,5 @@ namespace SecMobile.Core.ViewModels
 					new MvxCommand(() => ShowViewModel<MainViewModel>());
 			}
 		}
-
-		#endregion
 	}
 }

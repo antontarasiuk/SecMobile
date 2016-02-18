@@ -100,6 +100,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\drawer_icon.png" />
+    <Content Include="Assets\icon_menu\Agenda_Mdpi_blue.png" />
+    <Content Include="Assets\icon_menu\Agenda_Mdpi_gray.png" />
+    <Content Include="Assets\icon_menu\Feedback_Mdpi_blue.png" />
+    <Content Include="Assets\icon_menu\Feedback_Mdpi_gray.png" />
+    <Content Include="Assets\icon_menu\My_Agenda_Mdpi_blue.png" />
+    <Content Include="Assets\icon_menu\My_Agenda_Mdpi_gray.png" />
+    <Content Include="Assets\icon_menu\Settings_Mdpi_blue.png" />
+    <Content Include="Assets\icon_menu\Settings_Mdpi_gray.png" />
+    <Content Include="Assets\icon_menu\Speakers_Mdpi_blue.png" />
+    <Content Include="Assets\icon_menu\Speakers_Mdpi_gray.png" />
     <Content Include="Assets\Logo.scale-240.png" />
     <Content Include="Assets\SmallLogo.scale-240.png" />
     <Content Include="Assets\SplashScreen.scale-240.png" />
