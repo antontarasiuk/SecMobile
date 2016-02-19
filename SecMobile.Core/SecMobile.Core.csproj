@@ -41,7 +41,12 @@
     <Compile Include="App.cs" />
     <Compile Include="Contracts\BaseRequest.cs" />
     <Compile Include="Entities\Speaker.cs" />
+    <Compile Include="Infrastructure\HamburgerMenuItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\FeedbackViewModel.cs" />
+    <Compile Include="ViewModels\YammerViewModel.cs" />
+    <Compile Include="ViewModels\SettingsViewModel.cs" />
+    <Compile Include="ViewModels\MyAgendaViewModel.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\AgendaViewModel.cs" />

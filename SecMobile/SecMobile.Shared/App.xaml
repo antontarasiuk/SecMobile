@@ -45,7 +45,7 @@
         <DataTemplate x:Name="HamburgerMenuItemTemplate">
             <StackPanel Orientation="Horizontal">
                 <Grid Height="70" Width="70">
-                    <Image Source="{Binding Img}" Style="{StaticResource HamburgerMenuItemImage}"/>
+                    <Image Source="{Binding Image}" Style="{StaticResource HamburgerMenuItemImage}"/>
                 </Grid>
                 <TextBlock Text="{Binding Name}" Style="{StaticResource HamburgerMenuItemName}"/>
             </StackPanel>

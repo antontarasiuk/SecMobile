@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 using MvvmCross.Core.ViewModels;
+using SecMobile.Core.Infrastructure;
 
 namespace SecMobile.Core.ViewModels
 {
@@ -13,12 +14,12 @@ namespace SecMobile.Core.ViewModels
 	{
 		private object[] _hamburgerMenu =
 		{
-			new {Img = "/Assets/icon_menu/Agenda_Mdpi_gray.png", Name = "Agenda"},
-			new {Img = "/Assets/icon_menu/My_Agenda_Mdpi_gray.png", Name = "My Agenda"},
-			new {Img = "/Assets/icon_menu/Speakers_Mdpi_gray.png", Name = "Speakers"},
-			new {Img = "/Assets/icon_menu/Yammer_Mdpi_gray.png", Name = "Yammer"},
-			new {Img = "/Assets/icon_menu/Feedback_Mdpi_gray.png", Name = "Feedback"},
-			new {Img = "/Assets/icon_menu/Settings_Mdpi_gray.png", Name = "Settings"}
+			new HamburgerMenuItem {Image = "/Assets/icon_menu/Agenda_Mdpi_gray.png", Name = "Agenda"},
+			new HamburgerMenuItem {Image = "/Assets/icon_menu/My_Agenda_Mdpi_gray.png", Name = "My Agenda"},
+			new HamburgerMenuItem {Image = "/Assets/icon_menu/Speakers_Mdpi_gray.png", Name = "Speakers"},
+			new HamburgerMenuItem {Image = "/Assets/icon_menu/Yammer_Mdpi_gray.png", Name = "Yammer"},
+			new HamburgerMenuItem {Image = "/Assets/icon_menu/Feedback_Mdpi_gray.png", Name = "Feedback"},
+			new HamburgerMenuItem {Image = "/Assets/icon_menu/Settings_Mdpi_gray.png", Name = "Settings"}
 		};
 
 		public object[] HamburgerMenu
@@ -29,12 +30,23 @@ namespace SecMobile.Core.ViewModels
 
 		public void MenuItemClick(object sender, TappedRoutedEventArgs args)
 		{
-			var context = args.OriginalSource as TextBlock;
-			if (context!=null)
+			var textBlock = args.OriginalSource as TextBlock;
+			var menuItem = textBlock?.DataContext as HamburgerMenuItem;
+
+			switch (menuItem?.Name)
 			{
-				//var targetPage = context.DataContext.Name;
+				case "Agenda": ShowViewModel<AgendaViewModel>(); break;
+				case "My Agenda": ShowViewModel<MyAgendaViewModel>(); break;
+				case "Speakers": ShowViewModel<SpeakersViewModel>(); break;
+				case "Yammer": ShowViewModel<YammerViewModel>(); break;
+				case "Feedback": ShowViewModel<FeedbackViewModel>(); break;
+				case "Settings": ShowViewModel<SettingsViewModel>(); break;
+
+
+
+
 			}
-			ShowViewModel<AgendaViewModel>();
+
 		}
 	}
 }

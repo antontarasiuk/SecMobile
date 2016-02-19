@@ -16,7 +16,6 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using MvvmCross.WindowsCommon.Views;
-using SecMobile.Core.ViewModels;
 
 // The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkID=390556
 
@@ -25,24 +24,18 @@ namespace SecMobile.Views
 	/// <summary>
 	/// An empty page that can be used on its own or navigated to within a Frame.
 	/// </summary>
-	public sealed partial class SpeakersView : MvxWindowsPage
+	public sealed partial class SettingsView : MvxWindowsPage
 	{
 		private NavigationHelper navigationHelper;
 		private ObservableDictionary defaultViewModel = new ObservableDictionary();
 
-		public new SpeakersViewModel ViewModel
-		{
-			get { return (SpeakersViewModel)base.ViewModel; }
-			set { base.ViewModel = value; }
-		}
-
-		public SpeakersView()
+		public SettingsView()
 		{
 			this.InitializeComponent();
 
-			DrawerLayout.InitializeDrawerLayout();
-
 			this.navigationHelper = new NavigationHelper(this);
+			this.navigationHelper.LoadState += this.NavigationHelper_LoadState;
+			this.navigationHelper.SaveState += this.NavigationHelper_SaveState;
 		}
 
 		/// <summary>
@@ -106,43 +99,14 @@ namespace SecMobile.Views
 		/// handlers that cannot cancel the navigation request.</param>
 		protected override void OnNavigatedTo(NavigationEventArgs e)
 		{
-			base.OnNavigatedTo(e);
-			Windows.Phone.UI.Input.HardwareButtons.BackPressed += HardwareButtons_BackPressed;
-			//this.navigationHelper.OnNavigatedTo(e);
-		}
-
-		void HardwareButtons_BackPressed(object sender, Windows.Phone.UI.Input.BackPressedEventArgs e)
-		{
-			if (DrawerLayout.IsDrawerOpen)
-			{
-				DrawerLayout.CloseDrawer();
-				e.Handled = true;
-			}
-			else
-			{
-				Application.Current.Exit();
-			}
+			this.navigationHelper.OnNavigatedTo(e);
 		}
 
 		protected override void OnNavigatedFrom(NavigationEventArgs e)
 		{
-			base.OnNavigatedFrom(e);
-			//this.navigationHelper.OnNavigatedFrom(e);
+			this.navigationHelper.OnNavigatedFrom(e);
 		}
 
 		#endregion
-
-		private void DrawerIcon_Tapped(object sender, TappedRoutedEventArgs e)
-		{
-			if (DrawerLayout.IsDrawerOpen)
-				DrawerLayout.CloseDrawer();
-			else
-				DrawerLayout.OpenDrawer();
-		}
-
-		private void OnMenuItemClick(object sender, TappedRoutedEventArgs tappedRoutedEventArgs)
-		{
-			ViewModel.MenuItemClick(sender, tappedRoutedEventArgs);
-		}
 	}
 }
