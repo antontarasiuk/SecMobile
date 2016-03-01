@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Input;
 using MvvmCross.Core.ViewModels;
 using SecMobile.Core.Infrastructure;
 
@@ -28,25 +26,25 @@ namespace SecMobile.Core.ViewModels
 			set { _hamburgerMenu = value; RaisePropertyChanged(() => HamburgerMenu); }
 		}
 
-		public void MenuItemClick(object sender, TappedRoutedEventArgs args)
-		{
-			var textBlock = args.OriginalSource as TextBlock;
-			var menuItem = textBlock?.DataContext as HamburgerMenuItem;
-
-			switch (menuItem?.Name)
-			{
-				case "Agenda": ShowViewModel<AgendaViewModel>(); break;
-				case "My Agenda": ShowViewModel<MyAgendaViewModel>(); break;
-				case "Speakers": ShowViewModel<SpeakersViewModel>(); break;
-				case "Yammer": ShowViewModel<YammerViewModel>(); break;
-				case "Feedback": ShowViewModel<FeedbackViewModel>(); break;
-				case "Settings": ShowViewModel<SettingsViewModel>(); break;
-
-
-
-
-			}
-
-		}
+		//public void MenuItemClick(object sender, TappedRoutedEventArgs args)
+		//{
+		//	var textBlock = args.OriginalSource as TextBlock;
+		//	var menuItem = textBlock?.DataContext as HamburgerMenuItem;
+		//
+		//	switch (menuItem?.Name)
+		//	{
+		//		case "Agenda": ShowViewModel<AgendaViewModel>(); break;
+		//		case "My Agenda": ShowViewModel<MyAgendaViewModel>(); break;
+		//		case "Speakers": ShowViewModel<SpeakersViewModel>(); break;
+		//		case "Yammer": ShowViewModel<YammerViewModel>(); break;
+		//		case "Feedback": ShowViewModel<FeedbackViewModel>(); break;
+		//		case "Settings": ShowViewModel<SettingsViewModel>(); break;
+		//
+		//
+		//
+		//
+		//	}
+		//
+		//}
 	}
 }

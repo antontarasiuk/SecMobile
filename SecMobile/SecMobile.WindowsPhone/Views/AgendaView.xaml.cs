@@ -1,5 +1,4 @@
-﻿using SecMobile.Common;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -27,9 +26,6 @@ namespace SecMobile.Views
 	/// </summary>
 	public sealed partial class AgendaView : MvxWindowsPage
 	{
-		private NavigationHelper navigationHelper;
-		private ObservableDictionary defaultViewModel = new ObservableDictionary();
-
 		public new AgendaViewModel ViewModel
 		{
 			get { return (AgendaViewModel)base.ViewModel; }
@@ -40,25 +36,7 @@ namespace SecMobile.Views
 		{
 			this.InitializeComponent();
 
-			this.navigationHelper = new NavigationHelper(this);
 		}
 
-		/// <summary>
-		/// Gets the <see cref="NavigationHelper"/> associated with this <see cref="Page"/>.
-		/// </summary>
-		public NavigationHelper NavigationHelper
-		{
-			get { return this.navigationHelper; }
-		}
-
-		/// <summary>
-		/// Gets the view model for this <see cref="Page"/>.
-		/// This can be changed to a strongly typed view model.
-		/// </summary>
-		public ObservableDictionary DefaultViewModel
-		{
-			get { return this.defaultViewModel; }
-		}
-		
 	}
 }
