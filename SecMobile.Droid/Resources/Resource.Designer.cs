@@ -90,10 +90,16 @@ namespace SecMobile.Droid
 			public const int Icon = 2130837504;
 			
 			// aapt resource value: 0x7f020001
-			public const int monoandroidsplash = 2130837505;
+			public const int login_button = 2130837505;
 			
 			// aapt resource value: 0x7f020002
-			public const int splash = 2130837506;
+			public const int login_button_text_color = 2130837506;
+			
+			// aapt resource value: 0x7f020003
+			public const int monoandroidsplash = 2130837507;
+			
+			// aapt resource value: 0x7f020004
+			public const int SplashScreen_scale_240 = 2130837508;
 			
 			static Drawable()
 			{
@@ -115,7 +121,10 @@ namespace SecMobile.Droid
 			public const int MvxBindingTagUnique = 2130968577;
 			
 			// aapt resource value: 0x7f040002
-			public const int MyButton = 2130968578;
+			public const int btn1 = 2130968578;
+			
+			// aapt resource value: 0x7f040003
+			public const int btn2 = 2130968579;
 			
 			static Id()
 			{
@@ -134,10 +143,7 @@ namespace SecMobile.Droid
 			public const int LoginView = 2130903040;
 			
 			// aapt resource value: 0x7f030001
-			public const int Main = 2130903041;
-			
-			// aapt resource value: 0x7f030002
-			public const int SplashScreen = 2130903042;
+			public const int SplashScreen = 2130903041;
 			
 			static Layout()
 			{
@@ -171,11 +177,14 @@ namespace SecMobile.Droid
 		public partial class Style
 		{
 			
-			// aapt resource value: 0x7f050001
-			public const int Mono_Android_Theme_Splash = 2131034113;
+			// aapt resource value: 0x7f050002
+			public const int Mono_Android_Theme_Splash = 2131034114;
 			
 			// aapt resource value: 0x7f050000
 			public const int Theme_Splash = 2131034112;
+			
+			// aapt resource value: 0x7f050001
+			public const int button_text = 2131034113;
 			
 			static Style()
 			{

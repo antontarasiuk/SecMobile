@@ -4,7 +4,7 @@ using MvvmCross.Droid.Views;
 
 namespace SecMobile.Droid.Views
 {
-    [Activity(Label = "LoginView", MainLauncher = true)]
+    [Activity(Label = "", Theme = "@android:style/Theme.NoTitleBar", MainLauncher = true)]
     public class LoginView : MvxActivity
     {
         protected override void OnCreate(Bundle bundle)
