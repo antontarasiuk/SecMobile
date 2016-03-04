@@ -5,15 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using MvvmCross.Core.ViewModels;
-using SecMobile.Core.Entities;
+using SecMobile.Models;
 
 namespace SecMobile.Core.ViewModels
 {
 	public class SpeakersViewModel : BaseViewModel
 	{
 		private IEnumerable<Speaker> _speakers;
-		
 		private string _title = "SEC Winter 2016";
+
 		public string Title
 		{
 			get { return _title; }
@@ -24,6 +24,8 @@ namespace SecMobile.Core.ViewModels
 			get { return _speakers; }
 			set { _speakers = value; RaisePropertyChanged(() => Speakers); }
 		}
+
+		#region ctor
 
 		public SpeakersViewModel()
 		{
@@ -157,5 +159,7 @@ namespace SecMobile.Core.ViewModels
 				}
 			};
 		}
+
+		#endregion
 	}
 }

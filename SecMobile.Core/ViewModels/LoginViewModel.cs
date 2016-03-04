@@ -5,12 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using MvvmCross.Core.ViewModels;
-using SecMobile.Core.Entities;
 
 namespace SecMobile.Core.ViewModels
 {
-	public class LoginViewModel
-	   : MvxViewModel
+	public class LoginViewModel : MvxViewModel
 	{
 		
 		public IMvxCommand Login
@@ -19,6 +17,15 @@ namespace SecMobile.Core.ViewModels
 			{
 				return
 					new MvxCommand(() => ShowViewModel<SpeakersViewModel>());
+			}
+		}
+
+		public IMvxCommand EnterAsGuest
+		{
+			get
+			{
+				return
+					new MvxCommand(() => ShowViewModel<AgendaViewModel>());
 			}
 		}
 	}

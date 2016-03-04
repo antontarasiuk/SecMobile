@@ -16,12 +16,14 @@
             android:background="@drawable/login_button"
             android:text="LOGIN"
             style="@style/button_text"
-            android:textColor="@drawable/login_button_text_color" />
+            android:textColor="@drawable/login_button_text_color"
+            local:MvxBind="Click Login" />
         <Button
             android:id="@+id/btn2"
             android:background="@drawable/login_button"
             android:text="NOT NOW"
             style="@style/button_text"
-            android:textColor="@drawable/login_button_text_color" />
+            android:textColor="@drawable/login_button_text_color"
+            local:MvxBind="Click EnterAsGuest" />
     </LinearLayout>
 </LinearLayout>
