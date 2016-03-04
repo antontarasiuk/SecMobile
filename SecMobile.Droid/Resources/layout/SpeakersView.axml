@@ -6,7 +6,8 @@
     android:layout_height="match_parent">
     <Mvx.MvxListView
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="fill_parent"
         local:MvxBind="ItemsSource Speakers"
-        local:MvxItemTemplate="@layout/speaker_item_template" />
+        local:MvxItemTemplate="@layout/speaker_item_template"
+        android:background="#ffffff" />
 </LinearLayout>

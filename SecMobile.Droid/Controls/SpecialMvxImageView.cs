@@ -75,26 +75,43 @@ namespace SecMobile.Droid.Controls
 
 		private Bitmap GetRoundedShape(Bitmap scaleBitmapImage)
 		{
-			int targetWidth = scaleBitmapImage.Width;
-			int targetHeight = scaleBitmapImage.Height;
+			int targetWidth = 90;//scaleBitmapImage.Width;
+			int targetHeight = 90;//scaleBitmapImage.Height;
 			Bitmap targetBitmap = Bitmap.CreateBitmap(targetWidth, targetHeight, Bitmap.Config.Argb8888);
 
 			Canvas canvas = new Canvas(targetBitmap);
 			Android.Graphics.Path path = new Android.Graphics.Path();
 
-
-			path.AddCircle(((float)targetWidth - 1) / 2,
+			//draw grey circle
+			path.AddCircle(
+				((float)targetWidth - 1) / 2,
 				((float)targetHeight - 1) / 2,
-				(Math.Min(((float)targetWidth),
-					((float)targetHeight)) / 2),
+				(Math.Min(((float)targetWidth),((float)targetHeight)) / 2),
 				Android.Graphics.Path.Direction.Ccw);
 			canvas.ClipPath(path);
+			
+			canvas.DrawCircle(
+				((float)targetWidth - 1) / 2,
+				((float)targetHeight - 1) / 2,
+				(Math.Min(((float)targetWidth), ((float)targetHeight)) / 2), 
+				new Paint() {Color = Color.LightGray});
 
+			//draw an avatar
+			path.Reset();
+			path.AddCircle(
+				((float)targetWidth - 1) / 2,
+				((float)targetHeight - 1) / 2,
+				(Math.Min(((float)targetWidth), ((float)targetHeight)) / 2) - 4,
+				Android.Graphics.Path.Direction.Ccw);
+			canvas.ClipPath(path);
+			
 			Bitmap sourceBitmap = scaleBitmapImage;
-			canvas.DrawBitmap(sourceBitmap,
-				new Rect(0, 0, sourceBitmap.Width,
-					sourceBitmap.Height),
-				new Rect(0, 0, targetWidth, targetHeight), null);
+
+			canvas.DrawBitmap(
+				sourceBitmap,
+				new Rect(0, 0, sourceBitmap.Width, sourceBitmap.Height),
+				new Rect(0, 0, targetWidth, targetHeight),
+				null);
 			return targetBitmap;
 		}
 
