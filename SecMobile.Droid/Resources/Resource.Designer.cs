@@ -129,9 +129,6 @@ namespace SecMobile.Droid
 			// aapt resource value: 0x7f040003
 			public const int btn2 = 2130968579;
 			
-			// aapt resource value: 0x7f040005
-			public const int secondLine = 2130968581;
-			
 			static Id()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
