@@ -120,11 +120,17 @@ namespace SecMobile.Droid
 			// aapt resource value: 0x7f040001
 			public const int MvxBindingTagUnique = 2130968577;
 			
+			// aapt resource value: 0x7f040004
+			public const int ava = 2130968580;
+			
 			// aapt resource value: 0x7f040002
 			public const int btn1 = 2130968578;
 			
 			// aapt resource value: 0x7f040003
 			public const int btn2 = 2130968579;
+			
+			// aapt resource value: 0x7f040005
+			public const int secondLine = 2130968581;
 			
 			static Id()
 			{
@@ -140,10 +146,19 @@ namespace SecMobile.Droid
 		{
 			
 			// aapt resource value: 0x7f030000
-			public const int LoginView = 2130903040;
+			public const int AgendaView = 2130903040;
 			
 			// aapt resource value: 0x7f030001
-			public const int SplashScreen = 2130903041;
+			public const int LoginView = 2130903041;
+			
+			// aapt resource value: 0x7f030002
+			public const int speaker_item_template = 2130903042;
+			
+			// aapt resource value: 0x7f030003
+			public const int SpeakersView = 2130903043;
+			
+			// aapt resource value: 0x7f030004
+			public const int SplashScreen = 2130903044;
 			
 			static Layout()
 			{

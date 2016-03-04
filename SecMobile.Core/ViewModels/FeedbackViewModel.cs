@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using MvvmCross.Core.ViewModels;
-using SecMobile.Core.Entities;
 
 namespace SecMobile.Core.ViewModels
 {

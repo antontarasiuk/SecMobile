@@ -6,11 +6,7 @@
           android:color="#00AFC9" />
       <corners
           android:radius="6dp" />
-      <!--<padding
-          android:left="10dp"
-          android:top="20dp"
-          android:right="10dp"
-          android:bottom="20dp" />-->
+
     </shape>
   </item>
   <item>
@@ -19,11 +15,6 @@
           android:color="#ffffff" />
       <corners
           android:radius="6dp" />
-      <!--<padding
-          android:left="10dp"
-          android:top="20dp"
-          android:right="10dp"
-          android:bottom="20dp" />-->
     </shape>
   </item>
 </selector>

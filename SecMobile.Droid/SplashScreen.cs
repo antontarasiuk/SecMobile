@@ -5,7 +5,7 @@ using MvvmCross.Droid.Views;
 namespace SecMobile.Droid
 {
     [Activity(
-        Label = "SecMobile.Droid"
+        Label = "SEC Winter 2016"
         , MainLauncher = true
         , Icon = "@drawable/icon"
         , Theme = "@style/Theme.Splash"
