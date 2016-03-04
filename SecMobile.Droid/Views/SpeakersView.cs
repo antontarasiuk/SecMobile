@@ -1,6 +1,7 @@
 using Android.App;
 using Android.OS;
 using MvvmCross.Droid.Views;
+using SecMobile.Core.ViewModels;
 
 namespace SecMobile.Droid.Views
 {
